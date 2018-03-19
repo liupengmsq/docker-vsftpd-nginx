@@ -10,11 +10,10 @@ services:
       - "30000-30009:30000-30009"
     volumes:
       - "./download:/home/vsftpd"
-      - "./download/admin:/usr/share/nginx/html"
     environment:
-      FTP_USER: "admin"
-      FTP_PASS: "password"
-      PASV_ADDRESS: "0.0.0.0"
-      PASV_MIN_PORT: "30000"
-      PASV_MAX_PORT: "30009"
+      - FTP_USER=admin
+      - FTP_PASS=password
+      - PASV_ADDRESS=0.0.0.0
+      - PASV_MIN_PORT=30000
+      - PASV_MAX_PORT=3000
     restart: always
