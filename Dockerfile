@@ -16,5 +16,6 @@ ADD nginx.conf /etc/nginx/nginx.conf
 ADD vsftpd.conf /etc/vsftpd/
 ADD supervisord.conf /etc/supervisord.conf
 RUN chmod +x /usr/sbin/run-nginx.sh
+EXPOSE 80
 
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
