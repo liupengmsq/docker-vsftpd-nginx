@@ -1,19 +1,21 @@
 version: '3'
 services:
-  ftp:
+  nginx-ftp:
     image: "sparkpos/vsftpd-nginx"
-    container_name: ftp
+    container_name: nginx-ftp
     ports:
       - "20:20"
       - "21:21"
       - "8080:80"
       - "30000-30009:30000-30009"
     volumes:
-      - "./download:/home/vsftpd"
+      - "../../vsftp_data:/home/vsftpd"
     environment:
-      - FTP_USER=admin
-      - FTP_PASS=password
-      - PASV_ADDRESS=0.0.0.0
+      - FTP_USER=ftpuser
+      - FTP_PASS=passwd
+      - PASV_ADDRESS=127.0.0.1
       - PASV_MIN_PORT=30000
       - PASV_MAX_PORT=30009
+      - FILE_OPEN_MODE=0777
+      - LOCAL_UMASK=011
     restart: always

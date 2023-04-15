@@ -1,5 +1,4 @@
 FROM fauria/vsftpd
-MAINTAINER zterry <zterry@qq.com>
 
 RUN \
   rpm --rebuilddb && yum clean all && \
