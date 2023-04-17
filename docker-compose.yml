@@ -10,6 +10,8 @@ services:
       - "30000-30009:30000-30009"
     volumes:
       - "../../vsftp_data:/home/vsftpd"
+      - "../../ui_dist:/usr/share/nginx/html:ro"
+      - "../../ui_nginx_config:/etc/nginx/conf.d:ro"
     environment:
       - FTP_USER=ftpuser
       - FTP_PASS=passwd
